@@ -42,7 +42,7 @@ Reduction of [node-osx-notifier](https://github.com/azoff/node-osx-notifier) to 
 The Mac OS X Notification Center can only be accessed via signed apps,
 and any message sent from an application must be accompanied by the icon for that application.
 
-Three variations on the [terminal-notifier](https://github.com/alloy/terminal-notifier) are included with this app,
+Three variations on [terminal-notifier](https://github.com/alloy/terminal-notifier) are included with this app,
 which are accessed via the different `--type` options:
 
 | `--type` | sample |
