@@ -45,12 +45,11 @@ and any message sent from an application must be accompanied by the icon for tha
 Three variations on the [terminal-notifier](https://github.com/alloy/terminal-notifier) are included with this app,
 which are accessed via the different `--type` options:
 
-* info
-   ![info screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/info.png)
-* pass
-   ![pass screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/pass.png)
-* fail
-   ![fail screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/fail.png)
+| `--type` | sample |
+|:----:|:-----------|
+| info | ![info screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/info.png) |
+| pass | ![pass screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/pass.png) |
+| fail | ![fail screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/fail.png) |
 
 ## Credits
 

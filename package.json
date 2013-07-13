@@ -1,6 +1,6 @@
 {
   "name":"osx-notifier",
-  "description":"Send notifications to the OS X Notification Center (using terminal-notifier.app)",
+  "description":"Send notifications to the OS X Notification Center using terminal-notifier.app",
   "version":"0.1.0",
   "homepage": "https://github.com/chbrown/osx-notifier",
   "author": "Christopher Brown <io@henrian.com> (http://henrian.com)",
