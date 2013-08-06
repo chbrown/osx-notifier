@@ -5,7 +5,9 @@ var path = require('path');
 var child_process = require('child_process');
 
 var exec = module.exports = function(opts) {
-  var file = path.join(__dirname, 'osx', 'terminal-notifier-' + opts.type + '.app', 'Contents', 'MacOS', 'terminal-notifier');
+  var file = path.join(__dirname, 'osx',
+    'terminal-notifier-' + opts.type + '.app',
+    'Contents', 'MacOS', 'terminal-notifier');
   var args = [];
   ['title', 'subtitle', 'message', 'group', 'remove', 'list', 'activate', 'open', 'execute'].forEach(function(arg) {
     if (opts[arg]) args.push('-' + arg, opts[arg]);
@@ -15,6 +17,7 @@ var exec = module.exports = function(opts) {
   }
   child_process.execFile(file, args, {}, function(err, stdout, stderr) {
     if (err) {
+      console.error('exec(' + file + ')');
       if (stdout) console.log(stdout);
       if (stderr) console.error(stderr);
       throw err;
@@ -60,21 +63,17 @@ function main() {
   }
 
   if (argv.version) {
-    var package_json_path = path.join(__dirname, 'package.json');
-    fs.readFile(package_json_path, 'utf8', function(err, data) {
-      var obj = JSON.parse(data);
-      console.log(obj.version);
+    var package_json = require('./package');
+    console.log(package_json.version);
 
-      // var message = new Date().toString();
-      var message = __filename.replace(process.env.HOME, '~');
-      exec({
-        title: 'OS X Notifier',
-        subtitle: 'Version ' + obj.version,
-        message: message,
-        group: 'osx-notifier',
-      });
-
-      process.exit(0);
+    // var message = new Date().toString();
+    var message = __filename.replace(process.env.HOME, '~');
+    exec({
+      type: 'info',
+      title: 'OS X Notifier',
+      subtitle: 'Version ' + package_json.version,
+      message: message,
+      group: 'osx-notifier',
     });
   }
   else {
