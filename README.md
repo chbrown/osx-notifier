@@ -2,42 +2,77 @@
 
 Reduction of [node-osx-notifier](https://github.com/azoff/node-osx-notifier) to drive from the command line or directly from another node.js script, instead of an [express](http://expressjs.com/) server.
 
-## Install
+## Command line install & usage
 
-    npm install -g osx-notifier
+```bash
+npm install -g osx-notifier
+```
 
-## Usage
+**Usage** (`osx-notifier --help`):
 
-    osx-notifier
-      --type      type of icon to show;
-                  one of "info", "fail", or "pass" [default: "info"]
+```bash
+osx-notifier
+  --type      type of icon to show;
+              one of "info", "fail", or "pass" [default: "info"]
 
-      --title     title of the notification [default: "Terminal"]
-      --subtitle  subtitle of the notification
-      --message   message body of the notification [required]
+  --title     title of the notification [default: "Terminal"]
+  --subtitle  subtitle of the notification
+  --message   message body of the notification [required]
 
-      --group     replace and be replaced by any notifications of the same group
+  --group     replace and be replaced by any notifications of the same group
 
-      --remove    remove any notifications previously posted with this group
-                  (or ALL groups)
+  --remove    remove any notifications previously posted with this group
+              (or ALL groups)
 
-      --list      list notifications previously posted with this group
-                  (or ALL groups)
+  --list      list notifications previously posted with this group
+              (or ALL groups)
 
-      --activate  bundle identifier of an application to be activated
-                  if the user clicks the notification
+  --activate  bundle identifier of an application to be activated
+              if the user clicks the notification
 
-      --open      open a url / file / custom url scheme
-                  if the user clicks the notification
+  --open      open a url / file / custom url scheme
+              if the user clicks the notification
 
-      --execute   execute a shell command
-                  if the user clicks the notification
+  --execute   execute a shell command
+              if the user clicks the notification
 
-      --help      print this help message
-      --verbose   print extra output
-      --version   print version
+  --help      print this help message
+  --verbose   print extra output
+  --version   print version
+```
 
-## `--type`
+## API install & usage
+
+```bash
+npm install osx-notifier
+```
+
+Or in your package.json:
+
+```json
+{
+  "dependencies": {
+    "osx-notifier": "*"
+  }
+}
+```
+
+**Usage**:
+
+```javascript
+var notify = require('osx-notifier');
+
+var duration = 45;
+notify({
+  type: 'pass',
+  title: 'Taskdoer Report',
+  subtitle: 'Task completed',
+  message: 'Took ' + duration + ' seconds.',
+  group: 'taskdoer',
+});
+```
+
+## --type
 
 The Mac OS X Notification Center can only be accessed via signed apps,
 and any message sent from an application must be accompanied by the icon for that application.
@@ -47,9 +82,9 @@ which are accessed via the different `--type` options:
 
 | `--type` | sample |
 |:----:|:-----------|
-| info | ![info screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/info.png) |
-| pass | ![pass screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/pass.png) |
-| fail | ![fail screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/fail.png) |
+| `info` | ![info screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/info.png) |
+| `pass` | ![pass screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/pass.png) |
+| `fail` | ![fail screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/fail.png) |
 
 ## Credits
 

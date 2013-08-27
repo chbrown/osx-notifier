@@ -25,6 +25,6 @@
   "license": "MIT",
   "preferGlobal": "true",
   "bin": {
-    "osx-notifier": "index.js"
+    "osx-notifier": "bin/osx-notifier.js"
   }
 }
