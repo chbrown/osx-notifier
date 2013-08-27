@@ -2,6 +2,7 @@
 
 Reduction of [node-osx-notifier](https://github.com/azoff/node-osx-notifier) to drive from the command line or directly from another node.js script, instead of an [express](http://expressjs.com/) server.
 
+
 ## Command line install & usage
 
 ```bash
@@ -41,6 +42,7 @@ osx-notifier
   --version   print version
 ```
 
+
 ## API install & usage
 
 ```bash
@@ -72,6 +74,7 @@ notify({
 });
 ```
 
+
 ## --type
 
 The Mac OS X Notification Center can only be accessed via signed apps,
@@ -86,10 +89,28 @@ which are accessed via the different `--type` options:
 | `pass` | ![pass screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/pass.png) |
 | `fail` | ![fail screenshot](https://raw.github.com/chbrown/osx-notifier/master/doc/screenshots/fail.png) |
 
+
+## Winston integration
+
+You can use this functionality from within [winston](https://github.com/flatiron/winston) (a popular logging library) as a "Transport" via my [`winston-notification-center`](https://github.com/chbrown/winston-notification-center) plugin package (available from npm).
+
+**Example:**
+
+```javascript
+var winston = require('winston');
+var NotificationCenterTransport = require('winston-notification-center');
+winston.add(NotificationCenterTransport);
+winston.info('Hello world.');
+```
+
+See the [winston-notification-center](https://github.com/chbrown/winston-notification-center) project page for more options.
+
+
 ## Credits
 
 Thanks to [azoff](https://github.com/azoff/node-osx-notifier) for the prebuilt apps and the screenshots,
 and to [alloy](https://github.com/alloy/terminal-notifier) for the great OS X application wrapper.
+
 
 ## License
 
