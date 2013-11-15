@@ -42,7 +42,7 @@ if (argv.version) {
   // var message = new Date().toString();
   var message = __filename.replace(process.env.HOME, '~');
   notify({
-    type: 'info',
+    type: argv.type,
     title: 'OS X Notifier',
     subtitle: 'Version ' + package_json.version,
     message: message,
