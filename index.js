@@ -13,12 +13,17 @@ var cli_args = [
   'execute',
 ];
 
+/** escape any existing double quotes in value and then wrap in double quotes */
+function escapeArgument(value) {
+  return '"' + value.replace(/"/g, '\\"') + '"';
+}
+
 module.exports = function(opts) {
   var app = 'terminal-notifier-' + opts.type + '.app';
   var file = path.join(__dirname, 'osx', app, 'Contents', 'MacOS', 'terminal-notifier');
   var args = [];
   cli_args.forEach(function(arg) {
-    if (opts[arg]) args.push('-' + arg, opts[arg]);
+    if (opts[arg]) args.push('-' + arg, escapeArgument(opts[arg]));
   });
 
   if (opts.verbose) {
