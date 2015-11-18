@@ -114,4 +114,4 @@ and to [alloy](https://github.com/alloy/terminal-notifier) for the great OS X ap
 
 ## License
 
-Copyright © 2013 Christopher Brown. [MIT Licensed](LICENSE).
+Copyright 2013 Christopher Brown. [MIT Licensed](http://chbrown.github.io/licenses/MIT/#2013).
