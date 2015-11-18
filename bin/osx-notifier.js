@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-'use strict'; /*jslint es5: true, node: true, indent: 2 */
 var optimist = require('optimist');
 var notify = require('..');
 

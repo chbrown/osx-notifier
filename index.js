@@ -1,5 +1,3 @@
-'use strict'; /*jslint es5: true, node: true, indent: 2 */
-var fs = require('fs');
 var path = require('path');
 var child_process = require('child_process');
 
@@ -15,12 +13,9 @@ var cli_args = [
   'execute',
 ];
 
-function appBinPath(type) {
-  return path.join(__dirname, 'osx', 'terminal-notifier-' + type + '.app', 'Contents', 'MacOS', 'terminal-notifier');
-}
-
 module.exports = function(opts) {
-  var file = appBinPath(opts.type);
+  var app = 'terminal-notifier-' + opts.type + '.app';
+  var file = path.join(__dirname, 'osx', app, 'Contents', 'MacOS', 'terminal-notifier');
   var args = [];
   cli_args.forEach(function(arg) {
     if (opts[arg]) args.push('-' + arg, opts[arg]);
